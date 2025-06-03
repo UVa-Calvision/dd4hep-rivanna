@@ -2,8 +2,7 @@ Build the container
 =====
 
 ```bash
-module load apptainer
-make
+source build.sh
 ```
 
 This will build an alma8 container and link to ~/apptainer
