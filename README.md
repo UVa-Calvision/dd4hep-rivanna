@@ -34,4 +34,7 @@ Within the container follow the build instructions at<br>
 https://gitlab.cern.ch/calvisionsimulation/DualTestBeam<br>
 try using the branch: feature/no_dd4hep_build
 
-
+```bash
+git checkout feature/no_dd4hep_build
+```
+and follow the example to run the DRConly.xml geometry.
