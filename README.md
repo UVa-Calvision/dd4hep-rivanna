@@ -24,6 +24,8 @@ module unload gcc; module unload cmake;
 Run the container
 ----
 ```bash
+export SINGCVMFS_REPOSITORIES="geant4.cern.ch,sft.cern.ch"
+export SINGCMD=apptainer
 ~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma8.sif
 ```
 control-d to exit.
@@ -31,3 +33,5 @@ control-d to exit.
 Within the container follow the build instructions at<br>
 https://gitlab.cern.ch/calvisionsimulation/DualTestBeam<br>
 try using the branch: feature/no_dd4hep_build
+
+
