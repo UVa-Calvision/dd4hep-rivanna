@@ -24,6 +24,7 @@ module unload gcc; module unload cmake;
 Run the container
 ----
 ```bash
+module load apptainer
 export SINGCVMFS_REPOSITORIES="geant4.cern.ch,sft.cern.ch"
 export SINGCMD=apptainer
 ~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma8.sif
