@@ -7,7 +7,7 @@ Build the container
 cd container
 source build.sh
 ```
-This will create your contianer and link it to your ~/apptainer directory.
+This will create an alma8 contianer and link it to your ~/apptainer directory.  The def file can be easily modified to build alma9.
 
 Build cvmfsexec
 ---
