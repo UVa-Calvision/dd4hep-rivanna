@@ -60,8 +60,31 @@ ddsim --compactFile=DRConly.xml --runType=batch -G --steeringFile SCEPCALsteerin
 # to run quietly
 ddsim --compactFile=DRConly.xml --runType=batch -G --steeringFile SCEPCALsteering.py --outputFile=junk.root --part.userParticleHandler= -G --gun.position="0. 0. -1*cm" --gun.direction "0. 0. 1." --gun.energy "20*GeV" --gun.particle="pi-" --outputFile=junk.root -v VERBOSE -N 5 >& output.log
 ```
+This will produce the file ```junk.root```
 
+see: https://github.com/saraheno/DualTestBeam/blob/master/compact/massjobs.py for a guide on running the example through a script.
 
-
+Root with TBrowser
+---
+'''bash
+root --web=off junk.root
+root [1] new TBrowser()
+...
 ```
+see https://github.com/saraheno/DualTestBeam/blob/master/compact/Resolution.C for analysis code
+
+Looking at the geometry (*not workin yet*)
+---
+Currently there is a problem with graphics under out alma9 container.  instead run alma 8
+```
+~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma8.sif
+source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el8-gcc11-opt/setup.sh
+cd ~/GIT/DualTestBeam
+source ./install/bin/thisDualTestBeam.sh
+cd compact
+geoDisplay DRConly.xml
+```
+to do: try this after pulling a generic docker image
+
+
 
