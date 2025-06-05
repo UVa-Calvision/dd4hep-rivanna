@@ -103,7 +103,7 @@ When ROOT starts lok for a message like this:
 ```
 root [0] gio: file:///tmp/root_start_oxP9Wo.html: Failed to find default application for content type ?text/plain?
 ```
-cut/paste the file URL into you web browser to see the display.  <br>
+cut/paste the file URL into your web browser to see the geometry display.  <br>
 To do: figure out how to fix this mime type issue in the Rivanna virtual desktop.
 
 
