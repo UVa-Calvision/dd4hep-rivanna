@@ -70,21 +70,25 @@ Root with TBrowser
 root --web=off junk.root
 root [1] new TBrowser()
 ...
-```
+
 see https://github.com/saraheno/DualTestBeam/blob/master/compact/Resolution.C for analysis code
 
-Looking at the geometry (*not workin yet*)
+Looking at the geometry
 ---
-Currently there is a problem with graphics under out alma9 container.  instead run alma 8
 ```
-~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma8.sif
+~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma9.sif
 source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el8-gcc11-opt/setup.sh
 cd ~/GIT/DualTestBeam
 source ./install/bin/thisDualTestBeam.sh
 cd compact
 geoDisplay DRConly.xml
 ```
-to do: try this after pulling a generic docker image
+When ROOT starts lok for a message like this:
+```
+root [0] gio: file:///tmp/root_start_oxP9Wo.html: Failed to find default application for content type ?text/plain?
+```
+cut/paste the file URL into you web browser to see the display.  <br>
+To do: figure out how to fix this mime type issue in the Rivanna virtual desktop.
 
 
 
