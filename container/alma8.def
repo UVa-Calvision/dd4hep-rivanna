@@ -4,3 +4,6 @@ From: almalinux:8
 %post
         dnf install -y git gcc cmake gcc-c++  which libX11-devel  mesa-* libglvnd-* motif-devel libSM-devel libSM pcre2-* libXpm-* glx-utils 
 
+%environment
+	export PS1="alma8> "
+	
