@@ -66,13 +66,15 @@ see: https://github.com/saraheno/DualTestBeam/blob/master/compact/massjobs.py fo
 
 Root with TBrowser
 ---
-'''bash
+```bash
 root --web=off junk.root
 root [1] new TBrowser()
 ...
+```
 OR
 cut/paste the file URL provided with the web-based browser
-```
+
+```bash
 root [1] new TBrowser()
 
 ROOT comes with a web-based browser, which is now being started. 
