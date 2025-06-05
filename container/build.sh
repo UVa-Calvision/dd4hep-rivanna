@@ -28,6 +28,7 @@ done
 TGT=${TAINER}.sif
 DEF=${TAINER}.def
 
+echo "=== attempting to build $DEF ==="
 
 module load apptainer
 apptainer build $FLAG $TGT $DEF 
