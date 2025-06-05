@@ -70,6 +70,20 @@ Root with TBrowser
 root --web=off junk.root
 root [1] new TBrowser()
 ...
+OR
+cut/paste the file URL provided with the web-based browser
+```
+root [1] new TBrowser()
+
+ROOT comes with a web-based browser, which is now being started. 
+Revert to TBrowser by setting "Browser.Name: TRootBrowser" in rootrc file or
+by starting "root --web=off"
+Find more info on https://root.cern/for_developers/root7/#rbrowser
+Info in <THttpEngine::Create>: Starting HTTP server on port 127.0.0.1:9400
+Error in <THttpEngine::Log>: cannot bind to 127.0.0.1:9400: 98 (Address already in use)
+Info in <THttpEngine::Create>: Starting HTTP server on port 127.0.0.1:9495
+gio: file:///tmp/root_start_RDDKJD.html: Failed to find default application for content type ?text/plain?
+```
 
 see https://github.com/saraheno/DualTestBeam/blob/master/compact/Resolution.C for analysis code
 
