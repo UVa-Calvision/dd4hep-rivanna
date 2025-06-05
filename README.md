@@ -93,7 +93,7 @@ Looking at the geometry
 ---
 ```
 ~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma9.sif
-source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el8-gcc11-opt/setup.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh
 cd ~/GIT/DualTestBeam
 source ./install/bin/thisDualTestBeam.sh
 cd compact
