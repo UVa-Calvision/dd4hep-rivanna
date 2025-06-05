@@ -1,16 +1,37 @@
-#!/bins/bash
+#!/bin/bash
 
-TGT=alma8.sif
-DEF=alma8.def
+usage()
+{
+cat <<!EOF!
+Usage: build.sh [-hf] [target]
+   -h: print this message and exit
+   -f: force rebuild on contianer
+   target = name of sif file to build [alma8*, alma9]
+!EOF!
+    exit
+} >&2
 
-if [ -f $TGT ]; then
-    echo $TGT exits
-    echo rm $TGT \# to rebuild
-    echo $0 | grep bash > /dev/null && return ; exit
-fi
+TAINER=alma8
+
+for arg in "$@"; do
+    if [ "$arg" = "-h" ]; then
+	usage
+    elif [ "$arg" = "-f" ]; then
+	FLAG="-F"
+	echo "forcing rebuild of container"
+    else
+        TAINER=$arg
+    fi    
+done
+
+
+TGT=${TAINER}.sif
+DEF=${TAINER}.def
+
 
 module load apptainer
-apptainer build $TGT $DEF
-ln -sf $PWD/alma8.sif ~/apptainer/
+apptainer build $FLAG $TGT $DEF 
+mkdir -p ~/apptainer
+ln -sf $PWD/$TGT ~/apptainer/
 
 
