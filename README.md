@@ -64,6 +64,18 @@ This will produce the file ```junk.root```
 
 see: https://github.com/saraheno/DualTestBeam/blob/master/compact/massjobs.py for a guide on running the example through a script.
 
+Quick start to resume a working session
+---
+```bash
+module load apptainer
+export SINGCVMFS_REPOSITORIES="geant4.cern.ch,sft.cern.ch"
+export SINGCMD=apptainer
+~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma9.sif
+source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh
+cd ~/GIT/DualTestBeam
+source ./install/bin/thisDualTestBeam.sh
+cd compact
+```
 Root with TBrowser
 ---
 ```bash
