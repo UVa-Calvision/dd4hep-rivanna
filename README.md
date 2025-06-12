@@ -64,6 +64,13 @@ This will produce the file ```junk.root```
 
 see: https://github.com/saraheno/DualTestBeam/blob/master/compact/massjobs.py for a guide on running the example through a script.
 
+Example of running with Qt GUI
+---
+```ddsim --compactFile=./DRConly.xml --runType=qt -G --steeringFile SCEPCALsteering.py --outputFile=out.root --part.userParticleHandler='' -G --gun.position="0.,0.,-2400." --gun.direction "0 0 1" --gun.energy "10*GeV" --gun.particle="mu-"```
+
+note: set ```QT_DEBUG_PLUGINS=1``` to debug Qt libraries if needed
+
+
 Quick start to resume a working session
 ---
 ```bash
