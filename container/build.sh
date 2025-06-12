@@ -11,7 +11,7 @@ Usage: build.sh [-hf] [target]
     exit
 } >&2
 
-TAINER=alma8
+TAINER=alma9
 
 for arg in "$@"; do
     if [ "$arg" = "-h" ]; then
@@ -31,7 +31,7 @@ DEF=${TAINER}.def
 echo "=== attempting to build $DEF ==="
 
 module load apptainer
-apptainer build $FLAG $TGT $DEF 
+apptainer build $FLAG $TGT $DEF
 mkdir -p ~/apptainer
 ln -sf $PWD/$TGT ~/apptainer/
 
