@@ -67,7 +67,7 @@ see: https://github.com/saraheno/DualTestBeam/blob/master/compact/massjobs.py fo
 Example of running with Qt GUI
 ---
 ```ddsim --compactFile=./DRConly.xml --runType=qt -G --steeringFile SCEPCALsteering.py --outputFile=out.root --part.userParticleHandler='' -G --gun.position="0.,0.,-2400." --gun.direction "0 0 1" --gun.energy "10*GeV" --gun.particle="mu-"```
-```/control/execute vis.mac
+```/control/execute Qt.mac
 /run/beamOn 1
 ...
 ```
