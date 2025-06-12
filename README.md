@@ -129,6 +129,18 @@ root [0] gio: file:///tmp/root_start_oxP9Wo.html: Failed to find default applica
 cut/paste the file URL into your web browser to see the geometry display.  <br>
 To do: figure out how to fix this mime type issue in the Rivanna virtual desktop.
 
+Running CrystalAna.C
+---
+```
+cd compact
+root -l
+.L CrystalAna.C
+crystalana(100,"junk.root",20,1,1,0,1,"hist.root")
+.q
+root hist.root
+new TBrowser()
+```
+
 Links
 -----
 *  [DD4hep Guide for Young Students](https://docs.google.com/document/d/1J1Qx08Ozn8g4XEAypybaJbVPWNe5J576tK-5u2ouMt4/edit?usp=sharing)
