@@ -134,8 +134,14 @@ Running CrystalAna.C
 ```
 cd compact
 root -l
+```
+When root starts, load and run CrystalAna.C as follows:
+```
 .L CrystalAna.C
 crystalana(100,"junk.root",20,1,1,0,1,"hist.root")
+```
+Then quit and run hist.root in a TBrowser():
+```
 .q
 root hist.root
 new TBrowser()
