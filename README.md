@@ -1,5 +1,7 @@
 # dd4hep-rivanna
 
+Instructions for running the CalVision DD4HEP simulations on Rivanna.
+
 Build the container
 ---
 
