@@ -2,6 +2,8 @@
 
 Instructions for running the CalVision DD4HEP simulations on Rivanna.
 
+Note (18-June-2025): We need to update the docs here to use the more stable GitLab repo: https://gitlab.cern.ch/calvisionsimulation/DualTestBeam (CERN computing account required)
+
 Build the container
 ---
 
