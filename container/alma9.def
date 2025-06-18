@@ -4,8 +4,11 @@ From: almalinux:9
 %post
 	dnf install -y dnf-plugins-core       # for dnf config-manager
 	dnf config-manager --set-enabled crb  # for xcb-util-keysyms-devel
-        dnf install -y git gcc cmake gcc-c++  which libX11-devel  mesa-* libglvnd-* motif-devel libSM-devel libSM pcre2-* libXpm-* glx-utils compat-openssl11 libtirpc xdg-utils libxcb libX11-xcb xcb-util-wm xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel libxkbcommon libxkbcommon-x11
+        dnf install -y git gcc cmake gcc-c++  which libX11-devel  mesa-* libglvnd-* motif-devel libSM-devel libSM pcre2-* libXpm-* glx-utils compat-openssl11 libtirpc xdg-utils libxcb libX11-xcb xcb-util-wm xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel libxkbcommon libxkbcommon-x11 firefox
 
 %environment
 	export PS1="[alma9 \W> "
-	
+
+%runscript
+	gio mime text/plain firefox.desktop
+
