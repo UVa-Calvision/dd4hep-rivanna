@@ -12,7 +12,10 @@ jobDir=f'{homeDir}/slurm'
 outDir=f'{homeDir}/ddsimout'
 lcgRelease='/cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh'
 
-argParser = argparse.ArgumentParser()
+
+argParser = argparse.ArgumentParser(
+    description='slurm file generator for Rivanna',
+    epilog='Example usage:./runjobs.py -g DRBigEcal2.xml')
 argParser.add_argument("-g", "--geometry", type=str, help="geometry code (required)")
 argParser.add_argument("-N", "--nevt", type=int, default=10, help="number of events [10]")
 argParser.add_argument("-j", "--njobs", default=1, help="number or jobs [1]")
@@ -20,7 +23,7 @@ argParser.add_argument("-d", "--direction", default=0, help='beam direction [0="
 argParser.add_argument("-o", "--origin", default=0, help='beam origin [0="0.*cm 0.*cm -1*cm"]')
 argParser.add_argument("-p", "--particle", default='e-', help='particle type [e-]')
 argParser.add_argument('-E','--elist', nargs='+', type=float, default=[10], help='list of energies to run in GeV')
-argParser.add_argument('-r','--runname',default='', help='optional run name for file names')
+argParser.add_argument('-r','--runname', default=None, help='optional run name for file names')
 
 args = argParser.parse_args()
 print("args=%s" % args)
@@ -68,6 +71,7 @@ for e in args.elist:
     print(f'building job for E = {e} GeV {args.particle}')
     for n in range(args.njobs):
         jobName=f'{geofile}_{e}_GeV_{args.particle}_job{n}'
+        if args.runname: jobName=f'{jobName}-{args.runname}'
         outFile=f'{outDir}/{jobName}.root'
         print(f'replica {n}, job name: {jobName}')
         slurmJob=f'{jobDir}/{jobName}_slurm.sh'
