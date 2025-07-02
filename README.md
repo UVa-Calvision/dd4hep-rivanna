@@ -56,6 +56,7 @@ Running the example: DRConly
 Make sure you're running in your container and have the LCG release set up.
 
 ```bash
+source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh
 cd ~/GIT/DualTestBeam
 source ./install/bin/thisDualTestBeam.sh
 cd compact
