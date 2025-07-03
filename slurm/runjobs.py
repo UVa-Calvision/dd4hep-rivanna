@@ -12,6 +12,7 @@ xmlDir=f'{dd4Dir}/compact'
 jobDir=f'{homeDir}/slurm'
 outDir=f'{homeDir}/ddsimout'
 lcgRelease='/cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh'
+steeringFile='SCEPCALsteering.py'
 
 argParser = argparse.ArgumentParser(
     description='slurm file generator for Rivanna',
@@ -47,7 +48,9 @@ if args.origin=="2" :
     
 geofile=Path(args.geometry).with_suffix('')
 print("Running geometry:",geofile)
-    
+# geo definition for all jobs
+compactFile=f'{geofile}.xml'
+
 if not os.path.exists(jobDir):
     print("Creating job def directory",jobDir)
     os.mkdir(jobDir)
@@ -57,10 +60,6 @@ if not os.path.isdir(outDir):
     os.mkdir(outDir)
 
 
-
-# parameters for all jobs
-compactFile=f'{geofile}.xml'
-steeringFile='SCEPCALsteering.py'
 
 os.chdir(xmlDir)
 if not os.path.exists(compactFile) or not os.path.exists(steeringFile):
