@@ -5,13 +5,13 @@ import argparse, sys, os
 from pathlib import Path
 
 # local definitions
+container='~/apptainer/alma9.sif'
 homeDir = os.path.expanduser( '~' )
 dd4Dir=f'{homeDir}/GIT/DualTestBeam'
 xmlDir=f'{dd4Dir}/compact'
 jobDir=f'{homeDir}/slurm'
 outDir=f'{homeDir}/ddsimout'
 lcgRelease='/cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh'
-
 
 argParser = argparse.ArgumentParser(
     description='slurm file generator for Rivanna',
@@ -95,7 +95,7 @@ module load apptainer
 export SINGCVMFS_REPOSITORIES="geant4.cern.ch,sft.cern.ch"
 export SINGCMD=apptainer
 chmod +x {ddsimJob}
-~/GIT/cvmfsexec/singcvmfs exec ~/apptainer/alma9.sif {ddsimJob}
+~/GIT/cvmfsexec/singcvmfs exec {container} {ddsimJob}
 '''
         ddsimCmd=f'''#!/bin/bash
 echo "Start Time" `date`
