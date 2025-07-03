@@ -6,11 +6,12 @@ cat <<!EOF!
 Usage: build.sh [-hf] [target]
    -h: print this message and exit
    -f: force rebuild on contianer
-   target = name of sif file to build [alma8*, alma9]
+   target = name of sif file to build [alma8, alma9*]
 !EOF!
     exit
 } >&2
 
+# default build
 TAINER=alma9
 
 for arg in "$@"; do
@@ -20,7 +21,7 @@ for arg in "$@"; do
 	FLAG="-F"
 	echo "forcing rebuild of container"
     else
-        TAINER=$arg
+        TAINER=${arg%.*} # truncate .def if present
     fi    
 done
 
