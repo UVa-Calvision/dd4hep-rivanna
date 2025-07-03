@@ -6,7 +6,7 @@ cat <<!EOF!
 Usage: build.sh [-hf] [target]
    -h: print this message and exit
    -f: force rebuild on contianer
-   target = name of sif file to build [alma8, alma9*]
+   target = name of sif file to build [alma8, alma9*, alma9noX]
 !EOF!
     exit
 } >&2
