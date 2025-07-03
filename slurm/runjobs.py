@@ -18,7 +18,7 @@ argParser = argparse.ArgumentParser(
     epilog='Example usage:./runjobs.py -g DRBigEcal2.xml')
 argParser.add_argument("-g", "--geometry", type=str, help="geometry code (required)")
 argParser.add_argument("-N", "--nevt", type=int, default=10, help="number of events [10]")
-argParser.add_argument("-j", "--njobs", default=1, help="number or jobs [1]")
+argParser.add_argument("-j", "--njobs", type=int, default=1, help="number or jobs [1]")
 argParser.add_argument("-d", "--direction", default=0, help='beam direction [0="0.0 0.0 1.0"]')
 argParser.add_argument("-o", "--origin", default=0, help='beam origin [0="0.*cm 0.*cm -1*cm"]')
 argParser.add_argument("-p", "--particle", default='e-', help='particle type [e-]')
@@ -70,7 +70,7 @@ if not os.path.exists(compactFile) or not os.path.exists(steeringFile):
 for e in args.elist:
     print(f'building job for E = {e} GeV {args.particle}')
     for n in range(args.njobs):
-        jobName=f'{geofile}_{e}_GeV_{args.particle}_job{n}'
+        jobName=f'{geofile}_{e}_GeV_{args.particle}_{args.nevt}_evt_job{n:02d}'
         if args.runname: jobName=f'{jobName}-{args.runname}'
         outFile=f'{outDir}/{jobName}.root'
         print(f'replica {n}, job name: {jobName}')
