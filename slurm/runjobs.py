@@ -22,7 +22,7 @@ argParser.add_argument("-j", "--njobs", type=int, default=1, help="number or job
 argParser.add_argument("-d", "--direction", default=0, help='beam direction [0="0.0 0.0 1.0"]')
 argParser.add_argument("-o", "--origin", default=0, help='beam origin [0="0.*cm 0.*cm -1*cm"]')
 argParser.add_argument("-p", "--particle", default='e-', help='particle type [e-]')
-argParser.add_argument('-E','--elist', nargs='+', type=float, default=[10], help='list of energies to run in GeV, eg "10 20 30"')
+argParser.add_argument('-E','--elist', nargs='*', default=[10], help='list of energies to run in GeV, usage eg. -E 10 20 30')
 argParser.add_argument('-r','--runname', default=None, help='optional run name for file names')
 
 args = argParser.parse_args()
@@ -88,6 +88,7 @@ for e in args.elist:
 #SBATCH --constraint=rivanna   # cluster
 #SBATCH -o "{outDir}/{jobName}.log"
 #SBATCH --account=cmsexo   # allocation name
+#SBATCH --mem=8G 
 
 echo $PWD
 module load apptainer
