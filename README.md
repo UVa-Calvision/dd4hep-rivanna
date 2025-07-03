@@ -159,3 +159,8 @@ Links
 *  [DD4hep Guide for Young Students](https://docs.google.com/document/d/1J1Qx08Ozn8g4XEAypybaJbVPWNe5J576tK-5u2ouMt4/edit?usp=sharing)
 
 
+Git cheatsheet
+--------------
+* view remote branches: ```git branch -r```
+* checkout/activate remote branch: ```git checkout -b fwdsegmentation origin/fwdsegmentation```
+
