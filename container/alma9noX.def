@@ -1,0 +1,14 @@
+Bootstrap: docker
+From: almalinux:9
+
+%post
+	dnf install -y dnf-plugins-core       # for dnf config-manager
+	dnf config-manager --set-enabled crb  # for xcb-util-keysyms-devel
+        dnf install -y git gcc cmake gcc-c++  which  # basic utils
+
+%environment
+	export PS1="[alma9noX \W> "
+
+%runscript
+	gio mime text/plain firefox.desktop
+
