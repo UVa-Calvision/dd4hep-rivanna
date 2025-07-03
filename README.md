@@ -2,8 +2,6 @@
 
 Instructions for running the CalVision DD4HEP simulations on Rivanna.
 
-Note (18-June-2025): We need to update the docs here to use the more stable GitLab repo: https://gitlab.cern.ch/calvisionsimulation/DualTestBeam (CERN computing account required)
-
 Build the container
 ---
 
@@ -35,14 +33,16 @@ export SINGCMD=apptainer
 ```
 control-d to exit.
 
-Build Sarah's example
+Build the stable version of the DualTestBeam code
 ----
-See https://github.com/saraheno/DualTestBeam and https://foswiki.web.cern.ch/Calvision/DualCrystalDD4hep#making_digis
+CERN computing account required for gitlab access.
+
+See also https://github.com/saraheno/DualTestBeam and https://foswiki.web.cern.ch/Calvision/DualCrystalDD4hep#making_digis
 
 ```bash
 cd ~/GIT
 source /cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh
-git clone https://github.com/saraheno/DualTestBeam.git
+git clone https://gitlab.cern.ch/calvisionsimulation/DualTestBeam.git 
 cd DualTestBeam/
 mkdir build install
 cd build
