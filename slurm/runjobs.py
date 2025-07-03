@@ -7,10 +7,11 @@ from pathlib import Path
 # local definitions
 container='~/apptainer/alma9.sif'
 homeDir = os.path.expanduser( '~' )
-dd4Dir=f'{homeDir}/GIT/DualTestBeam'
-xmlDir=f'{dd4Dir}/compact'
-jobDir=f'{homeDir}/slurm'
-outDir=f'{homeDir}/ddsimout'
+gitDir = f'{homeDir}/GIT'
+dd4Dir = f'{gitDir}/DualTestBeam'
+xmlDir = f'{dd4Dir}/compact'
+jobDir = f'{homeDir}/slurm'
+outDir = f'{homeDir}/ddsimout'
 lcgRelease='/cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh'
 steeringFile='SCEPCALsteering.py'
 
@@ -25,6 +26,7 @@ argParser.add_argument("-o", "--origin", default=0, help='beam origin [0="0.*cm 
 argParser.add_argument("-p", "--particle", default='e-', help='particle type [e-]')
 argParser.add_argument('-E','--elist', nargs='*', default=[10], help='list of energies to run in GeV, usage eg. -E 10 20 30')
 argParser.add_argument('-r','--runname', default=None, help='optional run name for file names')
+argParser.add_argument('-R','--reponame', default=None, help='use alternate GIT repo for dd4sim')
 
 args = argParser.parse_args()
 print("args=%s" % args)
@@ -33,6 +35,14 @@ if args.geometry == None:
     print("Geometry file missing")
     sys.exit(1)
 
+if args.reponame:
+    dd4Dir = f'{gitDir}/{args.reponame}'
+    if not os.path.exists(dd4Dir):
+        print(f'{dd4Dir} does not exist')
+        sys.exit(1)
+
+print(f'Using DualTestBeam repo: {dd4Dir}')
+    
 # beam direction (improve these settings)
 beamDir="0. 0. 1." # default
 if args.direction=="1" :
