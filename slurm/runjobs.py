@@ -98,6 +98,7 @@ chmod +x {ddsimJob}
 ~/GIT/cvmfsexec/singcvmfs exec {container} {ddsimJob}
 '''
         ddsimCmd=f'''#!/bin/bash
+echo "Job running on:" `hostname`
 echo "Start Time" `date`
 cd {xmlDir}
 source {lcgRelease}
