@@ -43,7 +43,10 @@ if args.reponame:
 # this is a bit hacky/inflexible, but needs to be defined after dd4Dir is set
 xmlDir = f'{dd4Dir}/compact'
 
+print("===========================================")
 print(f'Using DualTestBeam repo: {dd4Dir}')
+print(f'Using geometry file: {xmlDir}/{args.geometry}')
+print("===========================================")
     
 # beam direction (improve these settings)
 beamDir="0. 0. 1." # default
