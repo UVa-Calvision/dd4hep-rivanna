@@ -9,7 +9,6 @@ container='~/apptainer/alma9.sif'
 homeDir = os.path.expanduser( '~' )
 gitDir = f'{homeDir}/GIT'
 dd4Dir = f'{gitDir}/DualTestBeam'
-xmlDir = f'{dd4Dir}/compact'
 jobDir = f'{homeDir}/slurm'
 outDir = f'{homeDir}/ddsimout'
 lcgRelease='/cvmfs/sft.cern.ch/lcg/views/LCG_107/x86_64-el9-gcc14-opt/setup.sh'
@@ -40,6 +39,9 @@ if args.reponame:
     if not os.path.exists(dd4Dir):
         print(f'{dd4Dir} does not exist')
         sys.exit(1)
+
+# this is a bit hacky/inflexible, but needs to be defined after dd4Dir is set
+xmlDir = f'{dd4Dir}/compact'
 
 print(f'Using DualTestBeam repo: {dd4Dir}')
     
