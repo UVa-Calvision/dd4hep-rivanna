@@ -6,6 +6,29 @@ From: almalinux:9
 	dnf config-manager --set-enabled crb  # for xcb-util-keysyms-devel
         dnf install -y git gcc cmake gcc-c++  which  # basic utils
 
+        # Create custom os-release
+        cat > /etc/../usr/lib/os-release << 'EOF'
+NAME="AlmaLinux"
+VERSION="9 (Lime Lynx)"
+ID="almalinux"
+ID_LIKE="rhel centos fedora"
+VERSION_ID="9"
+PLATFORM_ID="platform:el9"
+PRETTY_NAME="AlmaLinux 9 (Lime Lynx)"
+ANSI_COLOR="0;34"
+CPE_NAME="cpe:/o:almalinux:almalinux:9"
+HOME_URL="https://almalinux.org/"
+DOCUMENTATION_URL="https://wiki.almalinux.org/"
+BUG_REPORT_URL="https://bugs.almalinux.org/"
+
+ALMALINUX_MANTISBT_PROJECT="AlmaLinux-9"
+ALMALINUX_MANTISBT_PROJECT_VERSION="9"
+EOF
+
+        # Set proper permissions
+        chmod 644 /etc/os-release
+
+
 %environment
 	export PS1="[alma9noX \W> "
 

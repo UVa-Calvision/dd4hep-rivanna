@@ -8,9 +8,34 @@ From: almalinux:9
 	# installs for interactive X features
 	dnf install -y libX11-devel  mesa-* libglvnd-* motif-devel libSM-devel libSM pcre2-* libXpm-* glx-utils compat-openssl11 libtirpc xdg-utils libxcb libX11-xcb xcb-util-wm xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel libxkbcommon libxkbcommon-x11 firefox
 
+        # Create custom os-release
+        cat > /etc/../usr/lib/os-release << 'EOF'
+NAME="AlmaLinux"
+VERSION="9 (Lime Lynx)"
+ID="almalinux"
+ID_LIKE="rhel centos fedora"
+VERSION_ID="9"
+PLATFORM_ID="platform:el9"
+PRETTY_NAME="AlmaLinux 9 (Lime Lynx)"
+ANSI_COLOR="0;34"
+CPE_NAME="cpe:/o:almalinux:almalinux:9"
+HOME_URL="https://almalinux.org/"
+DOCUMENTATION_URL="https://wiki.almalinux.org/"
+BUG_REPORT_URL="https://bugs.almalinux.org/"
+
+ALMALINUX_MANTISBT_PROJECT="AlmaLinux-9"
+ALMALINUX_MANTISBT_PROJECT_VERSION="9"
+EOF
+
+        # Set proper permissions
+        chmod 644 /etc/os-release
+
 %environment
 	export PS1="[alma9 \W> "
 
 %runscript
 	gio mime text/plain firefox.desktop
+
+
+
 
