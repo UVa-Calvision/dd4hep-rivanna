@@ -27,7 +27,9 @@ Run the alma9 container
 ----
 ```bash
 module load apptainer
-export SINGCVMFS_REPOSITORIES="geant4.cern.ch,sft.cern.ch"
+#export SINGCVMFS_REPOSITORIES="geant4.cern.ch,sft.cern.ch" # depricated
+export SINGCVMFS_REPOSITORIES="sw.hsf.org,sw-nightlies.hsf.org"
+
 export SINGCMD=apptainer
 ~/GIT/cvmfsexec/singcvmfs shell ~/apptainer/alma9.sif
 ```
