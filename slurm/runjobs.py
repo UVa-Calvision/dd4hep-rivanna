@@ -26,6 +26,8 @@ argParser.add_argument("-p", "--particle", default='e-', help='particle type [e-
 argParser.add_argument('-E','--elist', nargs='*', default=[10], help='list of energies to run in GeV, usage eg. -E 10 20 30')
 argParser.add_argument('-r','--runname', default=None, help='optional run name for file names')
 argParser.add_argument('-R','--reponame', default=None, help='use alternate GIT repo for dd4sim')
+argParser.add_argument('-n','--dryrun', default=None, help='generate script(s), but do not submit jobs')
+
 
 args = argParser.parse_args()
 print("args=%s" % args)
@@ -133,4 +135,5 @@ echo "exitcode: $exitcode"
             f.write(ddsimCmd)  
 
         os.system(f'echo sbatch {slurmJob}')
-        os.system(f'sbatch {slurmJob}')
+        if not args.dryrun:
+            os.system(f'sbatch {slurmJob}')
