@@ -31,7 +31,14 @@ DEF=${TAINER}.def
 
 echo "=== attempting to build $DEF ==="
 
-module load apptainer
+thishost=`hostname -a`
+if [[ "$thishost" == *"hpc.virginia.edu"* ]]; then
+  echo "Building for UVa HPC"
+  module load apptainer
+else
+  echo "Using native apptainer"
+fi
+
 apptainer build $FLAG $TGT $DEF
 mkdir -p ~/apptainer
 ln -sf $PWD/$TGT ~/apptainer/
